@@ -3,3 +3,4 @@ knowhizService/.DS_Store
 knowhizService/.env
 /knowhizService/.vscode
 *.pyc
+/knowhizService/pipeline/test_outputs
