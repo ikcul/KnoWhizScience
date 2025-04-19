@@ -68,9 +68,9 @@ def local_test(params):
 
 if __name__ == "__main__":
     test_cases = [
+        (True, """level:"Beginner",subject:"",text:"I want to learn Calculus""", None, None),
         # (True, """level:"pre-college",subject:"",text:"500 most frequent Chinese words""", None, None),
         #(True, """level:"Beginner",subject:"",text:"College Level Linear Algebra.""", None, None),
-        #(True, "I want to learn Calculus", None, None),
         #(True, "I want to learn Introduction to Law", None, None),
         #(True, "I want to learn Introduction to Biology", None, None),
         #(True, "I want to learn Introduction to History", None, None),
@@ -103,7 +103,7 @@ if __name__ == "__main__":
         # (False, None, ["https://en.wikipedia.org/wiki/Generative_model"], ["https://en.wikipedia.org/wiki/Generative_artificial_intelligence"]),
         # (False, None, ["https://www.youtube.com/watch?v=eBVi_sLaYsc"], []),
         # (False, None, ["https://en.wikipedia.org/wiki/Generative_model"], []),
-        (False, None, ["https://en.wikipedia.org/wiki/Web3"], []),
+        # (False, None, ["https://en.wikipedia.org/wiki/Web3"], []),
         # (False, None, ["12.apkg"], []),
         # (False, None, ["14.apkg"], []),
         # (False, None, ["0.pdf"], []),
