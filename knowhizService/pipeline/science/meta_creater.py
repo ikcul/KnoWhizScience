@@ -27,8 +27,8 @@ class Meta_Creater:
         self.llm_basic = self.api.models['basic']['instance']
         self.llm_stable = self.api.models['stable']['instance']
         self.llm_creative = self.api.models['creative']['instance']
-        self.llm_basic_backup_1 = self.api.models['basic_backup_1']['instance']
-        self.llm_basic_backup_2 = self.api.models['basic_backup_2']['instance']
+        # self.llm_basic_backup_1 = self.api.models['basic_backup_1']['instance']
+        # self.llm_basic_backup_2 = self.api.models['basic_backup_2']['instance']
 
         self.llm_basic_context_window = self.api.models['basic']['context_window']
 

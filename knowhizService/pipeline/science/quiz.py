@@ -146,7 +146,8 @@ class Quiz(Meta_Creater):
     # Generation with given number of attempts
     def quiz_generations(self, llm, keywords, values, qform, quiz_type, llm_advance, max_attempts=3):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
