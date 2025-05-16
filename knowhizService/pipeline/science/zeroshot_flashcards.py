@@ -253,7 +253,8 @@ class Zeroshot_Flashcards(Meta_Creater):
     # Definition generation with given number of attempts
     def robust_generate_definitions(self, llm, keywords, chapter_name, course_name, definition_length, max_attempts=3, if_parallel=True):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -358,7 +359,8 @@ class Zeroshot_Flashcards(Meta_Creater):
     # Expansion generation with given number of attempts
     def robust_generate_expansions(self, llm, keywords, defs, chapter_name, course_name, expansion_length, max_attempts=3, regions=["Example"], if_parallel=True):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -455,7 +457,8 @@ class Zeroshot_Flashcards(Meta_Creater):
     # Rich content generation with given number of attempts
     def robust_generate_rich_content(self, llm, keywords, content_list, chapter_name, course_name, options_list=["Mindmap", "Table", "Formula", "Code", "Image"], max_attempts=3, if_parallel=True):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -518,7 +521,8 @@ class Zeroshot_Flashcards(Meta_Creater):
     # keywords generation with given number of attempts
     def robust_generate_keywords(self, llm, course_name_domain, chapter_list, keywords_per_chapter, max_attempts=3, if_parallel=True):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:

@@ -420,7 +420,8 @@ class Flashcards(Meta_Creater):
     # Definition generation with given number of attempts
     def generate_definitions(self, llm, keywords, texts, max_words_flashcards, max_words_expansion, max_attempts=3):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -476,7 +477,8 @@ class Flashcards(Meta_Creater):
     # Expansion generation with given number of attempts
     def generate_expansions(self, llm, keywords, texts, defs, course_name_domain, max_words_flashcards, max_words_expansion, max_attempts=3, regions=["Example"]):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -569,7 +571,8 @@ class Flashcards(Meta_Creater):
     # Rich content generation with given number of attempts
     def robust_generate_rich_content(self, llm, keywords, content_list, chapter_name, course_name, options_list=["Mindmap", "Table", "Formula", "Code", "Image"], max_attempts=3, if_parallel=True):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
@@ -1195,7 +1198,8 @@ class Flashcards(Meta_Creater):
     # Chapter assignment generation with given number of attempts
     def assign_chapters(self, llm, keywords, chapters, course_name, max_attempts = 3):
         attempt = 0
-        llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        # llm_sequence = [llm, self.llm_basic_backup_1, self.llm_basic_backup_2]
+        llm_sequence = [llm]
         llm_index = 0
 
         while attempt < max_attempts:
