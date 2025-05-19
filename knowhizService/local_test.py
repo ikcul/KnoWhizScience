@@ -1,6 +1,8 @@
 import os
 from multiprocessing import Pool
 from pipeline.dev_tasks import generate_flashcards
+import traceback
+from functools import partial
 
 def gen_config():
     return {
@@ -55,16 +57,30 @@ def flashcards_para(main_filenames, supplementary_filenames=None):
     return para
 
 def local_test(params):
-    zero_shot, course_description, main_files, supplementary_files = params
-    if zero_shot:
-        if course_description is None:
-            raise ValueError("course_description cannot be None for zero-shot generation.")
-        para = zero_shot_flashcards_para(course_description)
-    else:
-        if main_files is None:
-            raise ValueError("main_files cannot be None for non-zero-shot generation.")
-        para = flashcards_para(main_files, supplementary_files)
-    generate_flashcards(para)
+    try:
+        zero_shot, course_description, main_files, supplementary_files = params
+        if zero_shot:
+            if course_description is None:
+                raise ValueError("course_description cannot be None for zero-shot generation.")
+            para = zero_shot_flashcards_para(course_description)
+        else:
+            if main_files is None:
+                raise ValueError("main_files cannot be None for non-zero-shot generation.")
+            para = flashcards_para(main_files, supplementary_files)
+        generate_flashcards(para)
+    except Exception as e:
+        print(f"Error processing test case: {params}")
+        print(f"Error details: {str(e)}")
+        traceback.print_exc()
+
+def process_test_cases(test_cases):
+    for test_case in test_cases:
+        try:
+            local_test(test_case)
+        except Exception as e:
+            print(f"Failed to process test case: {test_case}")
+            print(f"Error: {str(e)}")
+            traceback.print_exc()
 
 if __name__ == "__main__":
     test_cases = [
@@ -114,5 +130,14 @@ if __name__ == "__main__":
         # (False, None, ["5000_Most_Frequent_Chinese_Words_With_Wiktionary_Entries.apkg"], [])
     ]
 
-    with Pool(processes=os.cpu_count()) as pool:
-        pool.map(local_test, test_cases)
+    try:
+        # First try with multiprocessing
+        with Pool(processes=os.cpu_count()) as pool:
+            try:
+                pool.map(local_test, test_cases)
+            except Exception as e:
+                print(f"Multiprocessing failed, falling back to sequential processing. Error: {str(e)}")
+                process_test_cases(test_cases)
+    except Exception as e:
+        print(f"Failed to initialize multiprocessing pool. Running sequentially. Error: {str(e)}")
+        process_test_cases(test_cases)
