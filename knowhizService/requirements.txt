@@ -193,7 +193,7 @@ unstructured==0.14.2
 unstructured-client==0.22.0
 urllib3==2.2.1
 uvicorn==0.29.0
-uvloop==0.19.0
+# uvloop==0.19.0
 vine==5.1.0
 watchfiles==0.21.0
 wcwidth==0.2.13
