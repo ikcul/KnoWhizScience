@@ -4,3 +4,4 @@ knowhizService/.env
 /knowhizService/.vscode
 *.pyc
 /knowhizService/pipeline/test_outputs
+.env
