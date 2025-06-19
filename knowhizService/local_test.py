@@ -81,6 +81,7 @@ def process_test_cases(test_cases):
             print(f"Failed to process test case: {test_case}")
             print(f"Error: {str(e)}")
             traceback.print_exc()
+<<<<<<< HEAD
 
 math_test_cases = [
     # (True, 'level:"Beginner",subject:"Mathematics",text:"Basic concepts of Algebra and solving linear equations"', None, None),
@@ -139,6 +140,8 @@ math_test_cases = [
     # (True, 'level:"Beginner",subject:"Mathematics",text:"Introduction to matrices: operations, determinants, and applications"', None, None),
     # (True, 'level:"Intermediate",subject:"Mathematics",text:"Cryptography: number theory applications and modern encryption methods"', None, None),
 ]
+=======
+>>>>>>> 53511019ab2598fb218fb418126295e55b6f55e7
 
 if __name__ == "__main__":
     test_cases = math_test_cases
