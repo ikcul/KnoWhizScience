@@ -5,3 +5,6 @@ knowhizService/.env
 *.pyc
 /knowhizService/pipeline/test_outputs
 .env
+
+# BFG
+*.jar
